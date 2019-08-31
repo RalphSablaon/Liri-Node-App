@@ -41,13 +41,13 @@ switch (command) {
 function concertThis(value) {
     axios.get("https://rest.bandsintown.com/artists/" + value + "/events?app_id=codingbootcamp")
     .then(function(response) {
-            for (var i =0; i < response.data.length; i++) {
+            for (var i =0; i < response.data.length && i < 5; i++) {
 
-                var dateTime = response.data[i].datetime;
-                var dateArray = dateTime.split('T');
+                var datetime = response.data[i].datetime;
+                var dateArray = datetime.split('T');
 
                 var concertResults = 
-                    "--------------------------------------------------------------------" + "\nVenue Name: " + response.data[i].venue.name + "\nLocation of venue: " + response.data[i].venue.city + "Date of event: " + moment(dateArray[0], "MM-DD-YYYY");
+                    "-------------------------------------------------------------------" + "\nVenue Name: " + response.data[i].venue.name + "\nLocation of venue: " + response.data[i].venue.city + "\nDate of event: " + moment(dateArray[0]).format("MM/DD/YYYY");
                 console.log(concertResults);
             }
 
@@ -62,7 +62,7 @@ function spotifyThis(value) {
         value = "The Sign";
     }
     spotify.search({ type: "track", query: value }).then(function(response) {
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 3; i++) {
             var spotifyResults = 
             "--------------------------------------------------------------------" + "\nArtist(s): " + response.tracks.items[i].artists[0].name + "\nSong Name: " + response.tracks.items[i].name + "\nPreview Link: " + response.tracks.items[i].preview_url + "\nAlbum: " + response.tracks.items[i].album.name;
 
