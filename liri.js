@@ -4,7 +4,7 @@ var keys = require("./keys.js");
 
 // Use the Spotify API and grabs the keys from keys.js
 var spotifyKeys = require("node-spotify-api");
-var spotify = new Spotify(keys.spotify);
+var spotify = new spotifyKeys(keys.spotify);
 
 
 var moment = require("moment");
@@ -39,12 +39,12 @@ switch (command) {
 
 // BandsInTown function here for "concertThis"
 function concertThis(value) {
-    axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp")
+    axios.get("https://rest.bandsintown.com/artists/" + value + "/events?app_id=codingbootcamp")
     .then(function(response) {
             for (var i =0; i < response.data.length; i++) {
 
                 var dateTime = response.data[i].datetime;
-                var dateArray = datetime.split('T');
+                var dateArray = dateTime.split('T');
 
                 var concertResults = 
                     "--------------------------------------------------------------------" + "\nVenue Name: " + response.data[i].venue.name + "\nLocation of venue: " + response.data[i].venue.city + "Date of event: " + moment(dateArray[0], "MM-DD-YYYY");
@@ -79,8 +79,22 @@ function movieThis(value) {
         value = "Mr. Nobody";
     }
     axios.get("http://www.omdbapi.com/?t=" + value + "&y=&plot=short&apikey=trilogy")
+    .then(function(response) {
+        var movieResults = "--------------------------------------------------------------------" + "\nMovie Title: " + response.data.Title + "\nRelease Year: " + response.data.Year + "\nIMDB Rating: " + response.data.imdbRating + "\nRotten Tomatoes Rating: " + response.data.Ratings[1].Value + "\nCountry Produced: " + response.data.Country + "\nLanguage: " + response.data.Language + "\nPlot: " + response.data.Plot + "\nCast: " + response.data.Actors;
+
+        console.log(movieResults);
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
+} //CLOSES movieThis function
+
+function doThis(value) {
+    fs.readFile("random.txt", "utf-8", function(error, data) {
+        if (error) {
+            return console.log(error);
+        }
+        var dataArray = data.split(",");
+        spotifyThis(dataArray[0], dataArray[1]);
+    })
 }
-
-
-
-
