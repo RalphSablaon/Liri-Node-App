@@ -31,28 +31,28 @@ The user has the option of using four commands (listed below) in conjuntion with
     
         node liri.js concert-this <name of artist or band>
     
-    Output: The system will display a list of all events and locations where the artist or band will perform. It can result in multiple records.
+    Result: The system will display a list of all events and locations where the artist or band will perform. It can result in multiple records.
 
 
     **Command 2**: Running the `spotify-this-song` command
     
         node liri.js spotify-this-song <name of song>
     
-    Output: The system will display a list of information associated with the song. It can result in multiple records. 
+    Result: The system will display a list of information associated with the song. It can result in multiple records. 
 
 
     **Command 3**: Running the `movie-this` command
     
         node liri.js movie-this <name of movie>
     
-    Output: The system will display information associated with the movie.
+    Result: The system will display information associated with the movie.
 
 
     **Command 4**: Running the `do-what-it-says` command
         
         node liri.js do-what-it-says
         
-    Output: The system will read the text in the random.txt file, and perform the command in terminal. 
+    Result: The system will read the text in the random.txt file, and perform the command in terminal. 
 
 - - -
 
