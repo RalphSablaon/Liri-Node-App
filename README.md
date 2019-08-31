@@ -15,6 +15,7 @@ The user has the option of using four commands (listed below) in conjuntion with
    * `do-what-it-says`
 
 - - -
+
 ## HOW TO USE LIRI
 ### **Video Guide**
 
@@ -53,6 +54,20 @@ The user has the option of using four commands (listed below) in conjuntion with
         
     Output: The system will read the text in the random.txt file, and perform the command in terminal. 
 
-
 - - -
+
+# Technologies Used
+
+* JavaScript
+* Node.js
+* Node Packages:
+    * Node-Spotify-API
+    * Request
+    * Moment
+    * DotEnv
+* APIs used:
+    * Bands in Town
+    * Spotify
+    * OMDB
+
 
